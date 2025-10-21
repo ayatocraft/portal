@@ -7,14 +7,15 @@
       "type": "image/png"
     }
   ],
-  "start_url": "./",
+  "start_url": "ayatocraft.github.io/portal",
   "theme_color": "#bad4f5",
   "background_color": "pink",
   "display": "standalone",
   "display_override": ["tabbed"],
   "tab_strip": {
-    "home_tab": { "scope_patterns": [{ "pathname": "./" }] },
-    "pinned_tabs": [{ "url": "./", "pinned": true }],
-    "new_tab_button": { "url": "./" }
+    "home_tab": { "scope_patterns": [{ "pathname": "ayatocraft.github.io/portal" }] },
+    "pinned_tabs": [{ "url": "ayatocraft.github.io/portal", "pinned": true }],
+    "new_tab_button": { "url": "ayatocraft.github.io/portal" }
   }
 }
+
