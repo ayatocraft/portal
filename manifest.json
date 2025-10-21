@@ -8,22 +8,15 @@
     }
   ],
   "start_url": "./",
-  "theme_color": "#FFFFFF",
-  "background_color": "white",
+  "theme_color": "#bad4f5",
+  "background_color": "pink",
   "display": "standalone",
   "display_override": ["tabbed"],
   "tab_strip": {
-    "home_tab": {
-      "scope_patterns": [{ "pathname": "./" }]
-    },
+    "home_tab": { "scope_patterns": [{ "pathname": "./" }] },
     "pinned_tabs": [
-      {
-        "url": "./",
-        "pinned": true
-      }
+      { "url": "./", "pinned": true }
     ],
-    "new_tab_button": {
-      "url": "./"
-    }
+    "new_tab_button": { "url": "./" }
   }
 }
