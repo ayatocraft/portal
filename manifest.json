@@ -6,19 +6,7 @@
   "display": "standalone",
   "display_override": ["tabbed"],
   "theme_color": "#bad4f5",
-  "background_color": "#ffffff",
-  "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
+  "background_color": "pink",
   "tab_strip": {
     "home_tab": { "scope_patterns": [{ "pathname": "/portal/" }] },
     "pinned_tabs": [
