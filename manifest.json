@@ -1,6 +1,6 @@
 {
   "name": "AyatoCraft Portal",
-  "start_url": "/portal",
+  "start_url": "/portal/",
   "display": "standalone",
   "display_override": ["tabbed"],
   "theme_color": "#bad4f5",
@@ -13,10 +13,8 @@
       "scope_patterns": [{ "pathname": "/portal" }]
     },
     "pinned_tabs": [
-      { "url": "/portal", "pinned": true }
+      { "url": "/portal/", "pinned": true }
     ],
-    "new_tab_button": { "url": "/portal" }
+    "new_tab_button": { "url": "/portal/" }
   }
 }
-
-
