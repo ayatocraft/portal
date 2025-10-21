@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AyatoCraft Portal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AyatoCraft Portal</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#bad4f5">
 
-  <!-- PWA対応 -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#bad4f5">
-
-  <style>
-    body {
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #bad4f5;
-      color: #333;
-      text-align: center;
-    }
-    button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 18px;
-      background-color: #f06292;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #ec407a;
-    }
-  </style>
+<style>
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #bad4f5;
+  color: #333;
+  text-align: center;
+}
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #f06292;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover { background-color: #ec407a; }
+</style>
 </head>
 <body>
 
-  <h1>AyatoCraft Portal</h1>
-  <p>固定タブとしてこのページが表示されています。</p>
-  <p>GitHub ページに移動するには、下のボタンを押してください。</p>
+<h1>AyatoCraft Portal</h1>
+<p>固定タブとしてこのページが表示されています。</p>
+<p>GitHub ページに移動するには、下のボタンを押してください。</p>
 
-  <button id="redirectBtn">GitHub に移動</button>
+<button id="redirectBtn">GitHub に移動</button>
 
-  <script>
-    const redirectBtn = document.getElementById('redirectBtn');
-    redirectBtn.addEventListener('click', () => {
-      window.location.href = "https://github.com/ayatocraft";
-    });
-  </script>
+<script>
+const redirectBtn = document.getElementById('redirectBtn');
+redirectBtn.addEventListener('click', () => {
+  // タブ付きPWAで同じPWA内のタブで開く
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    window.open('https://github.com/ayatocraft', '_tab');
+  } else {
+    // ブラウザなら通常の新しいタブ
+    window.open('https://github.com/ayatocraft', '_blank');
+  }
+});
+</script>
 </body>
 </html>
