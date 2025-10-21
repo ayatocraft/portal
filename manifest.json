@@ -1,0 +1,29 @@
+{
+  "name": "AyatoCraft Portal",
+  "icons": [
+    {
+      "src": "https://cdn.glitch.global/563b0136-ef02-47aa-9600-7da28abe691c/card-index-dividers_1f5c2-fe0f.png?v=1670196760807",
+      "sizes": "160x160",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./",
+  "theme_color": "#FFFFFF",
+  "background_color": "white",
+  "display": "standalone",
+  "display_override": ["tabbed"],
+  "tab_strip": {
+    "home_tab": {
+      "scope_patterns": [{ "pathname": "./" }]
+    },
+    "pinned_tabs": [
+      {
+        "url": "https://github.com/ayatocraft",
+        "pinned": true
+      }
+    ],
+    "new_tab_button": {
+      "url": "./"
+    }
+  }
+}
