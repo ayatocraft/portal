@@ -20,6 +20,7 @@
       background: #bad4f5;
       color: #333;
       text-align: center;
+      flex-direction: column;
     }
     .banner {
       position: fixed;
@@ -31,6 +32,7 @@
       padding: 10px;
       z-index: 9999;
       font-size: 16px;
+      text-align: center;
     }
     .banner a {
       color: #fff;
@@ -42,14 +44,14 @@
 <body>
 
   <h1>AyatoCraft Portal</h1>
-  <p>ポータルアプリでサイトを管理します。</p>
+  <p>10秒後に GitHub ページに移動します…</p>
 
   <script>
-    const portalUrl = window.location.origin; // このPWAのURLを指定
+    const portalUrl = window.location.origin; // このPWAのURL
     const hostname = window.location.hostname;
     const pathname = window.location.pathname;
 
-    // GitHub Pagesにアクセスした場合の判定
+    // ブラウザで GitHub Pages にアクセスした場合のバナー表示
     const isGitHubPages =
       hostname === "ayatocraft.github.io" ||
       (hostname.endsWith(".github.io") && pathname.startsWith("/ayatocraft"));
@@ -64,8 +66,10 @@
       document.body.appendChild(banner);
     }
 
-    // ページロード時にPWA起動時の挙動（必要なら）
-window.location.href = "https://github.com/ayatocraft";
+    // 起動後10秒で GitHub にリダイレクト
+    setTimeout(() => {
+      window.location.href = "https://github.com/ayatocraft";
+    }, 10000); // 10000ms = 10秒
   </script>
 </body>
 </html>
