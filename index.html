@@ -9,14 +9,63 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#bad4f5">
 
-  <script>
-    // ページを開いたらすぐリダイレクト
-    window.addEventListener('DOMContentLoaded', () => {
-      window.location.href = "https://github.com/ayatocraft";
-    });
-  </script>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #bad4f5;
+      color: #333;
+      text-align: center;
+    }
+    .banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #f06292;
+      color: #fff;
+      padding: 10px;
+      z-index: 9999;
+      font-size: 16px;
+    }
+    .banner a {
+      color: #fff;
+      text-decoration: underline;
+      margin-left: 8px;
+    }
+  </style>
 </head>
 <body>
-  <p>リダイレクト中…</p>
+
+  <h1>AyatoCraft Portal</h1>
+  <p>ポータルアプリでサイトを管理します。</p>
+
+  <script>
+    const portalUrl = window.location.origin; // このPWAのURLを指定
+    const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
+
+    // GitHub Pagesにアクセスした場合の判定
+    const isGitHubPages =
+      hostname === "ayatocraft.github.io" ||
+      (hostname.endsWith(".github.io") && pathname.startsWith("/ayatocraft"));
+
+    if (isGitHubPages) {
+      const banner = document.createElement("div");
+      banner.className = "banner";
+      banner.innerHTML = `
+        このサイトは <strong>Portal PWA</strong> で開くことをおすすめします。
+        <a href="${portalUrl}">Portalで開く</a>
+      `;
+      document.body.appendChild(banner);
+    }
+
+    // ページロード時にPWA起動時の挙動（必要なら）
+window.location.href = "https://github.com/ayatocraft";
+  </script>
 </body>
 </html>
