@@ -20,7 +20,7 @@ body {
   color: #333;
   text-align: center;
 }
-button {
+button, a.tab-link {
   margin-top: 20px;
   padding: 12px 24px;
   font-size: 18px;
@@ -29,26 +29,33 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
 }
-button:hover { background-color: #ec407a; }
+button:hover, a.tab-link:hover { background-color: #ec407a; }
 </style>
 </head>
 <body>
 
 <h1>AyatoCraft Portal</h1>
 <p>固定タブとしてこのページが表示されています。</p>
-<p>GitHub ページに移動するには、下のボタンを押してください。</p>
 
+<!-- リダイレクトボタン -->
 <button id="redirectBtn">GitHub に移動</button>
+
+<!-- 新しいタブボタン -->
+<a href="./" class="tab-link">新しいタブを開く</a>
+
+<!-- scope外リンク（Out of scope linkの例） -->
+<a href="https://www.google.com" class="tab-link">Out of scope link</a>
 
 <script>
 const redirectBtn = document.getElementById('redirectBtn');
 redirectBtn.addEventListener('click', () => {
-  // タブ付きPWAで同じPWA内のタブで開く
   if (window.matchMedia('(display-mode: standalone)').matches) {
+    // タブ付きPWAで同じPWA内のタブで開く
     window.open('https://github.com/ayatocraft', '_tab');
   } else {
-    // ブラウザなら通常の新しいタブ
+    // ブラウザなら新しいタブ
     window.open('https://github.com/ayatocraft', '_blank');
   }
 });
