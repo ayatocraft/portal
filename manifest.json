@@ -14,9 +14,7 @@
   "display_override": ["tabbed"],
   "tab_strip": {
     "home_tab": { "scope_patterns": [{ "pathname": "./" }] },
-    "pinned_tabs": [
-      { "url": "./", "pinned": true }
-    ],
+    "pinned_tabs": [{ "url": "./", "pinned": true }],
     "new_tab_button": { "url": "./" }
   }
 }
