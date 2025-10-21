@@ -1,24 +1,84 @@
-<script>
-  function redirectToGitHub() {
-    setTimeout(() => {
-      window.location.href = "https://github.com/ayatocraft";
-    }, 10000); // 10秒待つ
-  }
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AyatoCraft Portal</title>
 
-  window.addEventListener('load', () => {
-    // PWAとして起動されているか確認
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-    if (isStandalone) {
-      redirectToGitHub();
-    } else {
-      // ブラウザでアクセスした場合はバナー表示
+  <!-- PWA対応 -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#bad4f5">
+
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #bad4f5;
+      color: #333;
+      text-align: center;
+    }
+    .banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #f06292;
+      color: #fff;
+      padding: 10px;
+      z-index: 9999;
+      font-size: 16px;
+      text-align: center;
+    }
+    .banner a {
+      color: #fff;
+      text-decoration: underline;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AyatoCraft Portal</h1>
+  <p>PWAで起動すると10秒後にGitHubページへ移動します。</p>
+
+  <script>
+    const portalUrl = window.location.origin; // PWA URL
+    const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
+
+    // GitHub Pagesにアクセスした場合のバナー表示
+    const isGitHubPages =
+      hostname === "ayatocraft.github.io" ||
+      (hostname.endsWith(".github.io") && pathname.startsWith("/ayatocraft"));
+
+    if (isGitHubPages) {
       const banner = document.createElement("div");
       banner.className = "banner";
       banner.innerHTML = `
         このサイトは <strong>Portal PWA</strong> で開くことをおすすめします。
-        <a href="${window.location.origin}">Portalで開く</a>
+        <a href="${portalUrl}">Portalで開く</a>
       `;
       document.body.appendChild(banner);
     }
-  });
-</script>
+
+    // PWAとして起動されているか確認
+    function redirectToGitHub() {
+      setTimeout(() => {
+        window.location.href = "https://github.com/ayatocraft";
+      }, 10000); // 10秒待機
+    }
+
+    window.addEventListener('load', () => {
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+      if (isStandalone) {
+        redirectToGitHub();
+      }
+    });
+  </script>
+</body>
+</html>
